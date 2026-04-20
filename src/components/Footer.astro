@@ -39,7 +39,7 @@ const { locale } = Astro.props;
         ))
     }
     <a id="i18n" href="/pl" aria-label="pl" class="text-foreground text-sm">
-        pl?
+        XD
     </a>
     <div class="ml-auto">
         <ThemeIcon />
@@ -47,7 +47,16 @@ const { locale } = Astro.props;
 </footer>
 
 <script define:vars={{ locale }} is:inline>
-    if (locale === "pl") {
-        document.getElementById("i18n")?.classList.add("hidden");
+    const toggle = document.getElementById("i18n");
+    if (toggle) {
+        if (locale === "pl") {
+            toggle.setAttribute("href", "/");
+            toggle.setAttribute("aria-label", "pl");
+            toggle.innerHTML = "en?";
+        } else {
+            toggle.setAttribute("href", "/pl");
+            toggle.setAttribute("aria-label", "en");
+            toggle.innerHTML = "pl?";
+        }
     }
 </script>

@@ -7,6 +7,15 @@ type BlogPost = {
     pubDate: Date;
 };
 
+type BlogPostsProps = {
+    locale: string;
+};
+
+type BlogUI = {
+    zero: string;
+    error: string;
+};
+
 const loadPosts = async () => {
     const res = await fetch("/api/feed");
     const xml = await res.text();
@@ -26,7 +35,20 @@ const loadPosts = async () => {
     return posts;
 };
 
-export const BlogPosts = () => {
+export const BlogPosts = ({ locale }: BlogPostsProps) => {
+    let ui: BlogUI;
+    if (locale === "pl") {
+        ui = {
+            zero: "Artykuły ze substacka wkrótce...",
+            error: "Nie udało się wczytać artykułów...",
+        };
+    } else {
+        ui = {
+            zero: "Substack articles comming soon... ",
+            error: "Failed to load articles...",
+        };
+    }
+
     const {
         data: posts = [],
         isPending,
@@ -46,11 +68,11 @@ export const BlogPosts = () => {
     }
 
     if (posts.length <= 0) {
-        return <div>Substack articles comming soon... </div>;
+        return <div>{ui.zero}</div>;
     }
 
     if (isError) {
-        return <div>Failed to load posts...</div>;
+        return <div>{ui.error}</div>;
     }
 
     return (
@@ -68,7 +90,7 @@ export const BlogPosts = () => {
                         {post.title}
                     </a>
                     <p className="text-muted">
-                        {new Date(post.pubDate).toLocaleDateString()}
+                        {new Date(post.pubDate).toLocaleDateString(locale)}
                     </p>
                 </span>
             ))}

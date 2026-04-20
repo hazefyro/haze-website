@@ -4,7 +4,11 @@ import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client
 import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
 import { BlogPosts } from "./BlogPosts";
 
-export const BlogPostsIsland = () => {
+type BlogPostsIslandProps = {
+    locale: string;
+};
+
+export const BlogPostsIsland = ({ locale }: BlogPostsIslandProps) => {
     const [queryClient] = useState(
         () =>
             new QueryClient({
@@ -34,7 +38,7 @@ export const BlogPostsIsland = () => {
                 buster: "blog-posts-v1",
             }}
         >
-            <BlogPosts />
+            <BlogPosts locale={locale} />
         </PersistQueryClientProvider>
     );
 };
