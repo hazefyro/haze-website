@@ -7,6 +7,7 @@ type Studies = {
     title: string;
     degree: string;
     uni: string;
+    time: string;
 };
 
 let studies: Studies;
@@ -16,12 +17,14 @@ if (locale === "pl") {
         title: "Studia",
         degree: "Informatyka",
         uni: "Uniwersytet Zielonogórski",
+        time: "do teraz",
     };
 } else {
     studies = {
         title: "Studies",
         degree: "Computer Science",
         uni: "University of Zielona Góra",
+        time: "present",
     };
 }
 ---
@@ -35,6 +38,6 @@ if (locale === "pl") {
             <p class="text-foreground font-medium">{studies.degree}</p>
             <p class="text-muted">{studies.uni}</p>
         </span>
-        <p class="text-muted ml-auto">2024 - present</p>
+        <p class="text-muted flex-col sm:ml-auto">2024 - {studies.time}</p>
     </div>
 </Section>
