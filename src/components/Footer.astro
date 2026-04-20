@@ -1,9 +1,38 @@
 ---
 import ThemeIcon from "./ThemeIcon.astro";
+
+type SocialButton = {
+  name: string;
+  href: string;
+};
+
+const socialButtons = [
+  {
+    name: "GitHub",
+    href: "https://github.com/hazetwo",
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/hazefyro",
+  },
+  {
+    name: "Substack",
+    href: "https://substack.com/@hazefyro",
+  },
+] satisfies SocialButton[];
 ---
 
 <footer
   class="mx-auto flex w-full max-w-md flex-wrap items-center gap-4 lg:max-w-lg"
 >
-  <ThemeIcon />
+  {
+    socialButtons.map(({ name, href }) => (
+      <a href={href} aria-label={name} class="text-foreground font-medium">
+        {name}
+      </a>
+    ))
+  }
+  <div class="ml-auto">
+    <ThemeIcon />
+  </div>
 </footer>

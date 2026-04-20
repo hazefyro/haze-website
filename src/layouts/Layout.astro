@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
-import "../styles/global.css";
+import "@/styles/global.css";
+import Footer from "@/components/Footer.astro";
 ---
 
 <!doctype html>
@@ -18,7 +19,12 @@ import "../styles/global.css";
     />
   </head>
 
-  <body class="bg-background dark:bg-background">
-    <slot />
+  <body class="bg-background">
+    <article
+      class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
+    >
+      <slot />
+      <Footer />
+    </article>
   </body>
 </html>

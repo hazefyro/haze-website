@@ -1,25 +1,13 @@
 ---
-import Footer from "../components/Footer.astro";
-import Layout from "../layouts/Layout.astro";
-import { Separator } from "@base-ui/react/separator";
+import Layout from "@/layouts/Layout.astro";
+import PageLayout from "@/layouts/PageLayout.astro";
 ---
 
 <Layout>
-  <article
-    class="mx-auto flex max-w-4xl flex-col items-center gap-12 px-6 py-24 text-sm lg:gap-14"
-  >
-    <section
-      class="flex w-full max-w-md flex-col items-start gap-5 text-left lg:max-w-lg"
-    >
-      <h1 class="text-foreground font-medium">hi, I'm haze</h1>
-      <p class="text-muted leading-relaxed text-pretty">
-        Computer science student.
-      </p>
-    </section>
-    <Separator
-      orientation="horizontal"
-      className="bg-foreground/15 dark:bg-foreground/30 h-px w-full max-w-md lg:max-w-lg"
-    />
-    <Footer />
-  </article>
+  <PageLayout>
+    <h1 class="text-foreground font-bold">hi, I'm haze</h1>
+    <p class="text-foreground leading-relaxed text-pretty">
+      Computer science student.
+    </p>
+  </PageLayout>
 </Layout>
