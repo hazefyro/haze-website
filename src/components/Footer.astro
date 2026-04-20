@@ -2,49 +2,52 @@
 import ThemeIcon from "./ThemeIcon.astro";
 
 type SocialButton = {
-  name: string;
-  href: string;
+    name: string;
+    href: string;
 };
 
 const socialButtons = [
-  {
-    name: "GitHub",
-    href: "https://github.com/hazetwo",
-  },
-  {
-    name: "Twitter",
-    href: "https://x.com/hazefyro",
-  },
-  {
-    name: "Substack",
-    href: "https://substack.com/@hazefyro",
-  },
+    {
+        name: "GitHub",
+        href: "https://github.com/hazefyro",
+    },
+    {
+        name: "Twitter",
+        href: "https://x.com/hazefyro",
+    },
+    {
+        name: "Substack",
+        href: "https://substack.com/@hazefyro",
+    },
 ] satisfies SocialButton[];
 
 const { locale } = Astro.props;
 ---
 
 <footer
-  class="mx-auto flex w-full max-w-md flex-wrap items-center gap-4 lg:max-w-lg"
+    class="mx-auto flex w-full max-w-md flex-wrap items-center gap-4 lg:max-w-lg"
 >
-  {
-    socialButtons.map(({ name, href }) => (
-      <a href={href} aria-label={name} class="text-foreground font-medium">
-        {name}
-      </a>
-    ))
-  }
-  <a id="i18n" href="/pl" aria-label="pl" class="text-foreground text-sm">
-    pl?
-  </a>
-  <div class="ml-auto">
-    <ThemeIcon />
-  </div>
+    {
+        socialButtons.map(({ name, href }) => (
+            <a
+                href={href}
+                aria-label={name}
+                class="text-foreground font-medium"
+            >
+                {name}
+            </a>
+        ))
+    }
+    <a id="i18n" href="/pl" aria-label="pl" class="text-foreground text-sm">
+        pl?
+    </a>
+    <div class="ml-auto">
+        <ThemeIcon />
+    </div>
 </footer>
 
 <script define:vars={{ locale }} is:inline>
-  console.log(locale);
-  if (locale === "pl") {
-    document.getElementById("i18n")?.classList.add("hidden");
-  }
+    if (locale === "pl") {
+        document.getElementById("i18n")?.classList.add("hidden");
+    }
 </script>

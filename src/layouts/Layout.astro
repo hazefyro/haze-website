@@ -4,44 +4,64 @@ import "@/styles/global.css";
 import Footer from "@/components/Footer.astro";
 import Projects from "@/components/Projects.astro";
 import { Separator } from "@base-ui/react";
+import Study from "@/components/Study.astro";
+import Section from "@/components/Section.astro";
+import Blog from "@/components/Blog.astro";
 
 const locale = Astro.currentLocale;
 ---
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Haze | Fyro</title>
-    <Font
-      cssVariable="--font-roboto"
-      preload={[{ weight: 400 }, { weight: 600 }]}
-    />
-  </head>
-
-  <body class="bg-background">
-    <article
-      class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
-    >
-      <section
-        class="flex w-full max-w-md flex-col items-start gap-5 text-left lg:max-w-lg"
-      >
-        <slot />
-        <Projects locale={locale} />
-        <Separator
-          orientation="horizontal"
-          className="bg-foreground/15 dark:bg-foreground/30 h-px w-full max-w-md lg:max-w-lg"
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
         />
-      </section>
-      <Footer locale={locale} />
-    </article>
-  </body>
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Haze | Fyro</title>
+        <Font
+            cssVariable="--font-roboto"
+            preload={[{ weight: 400 }, { weight: 600 }]}
+        />
+    </head>
+
+    <body class="bg-background">
+        <article
+            class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
+        >
+            <Section
+                class="flex w-full max-w-md flex-col items-start gap-5 text-left lg:max-w-lg"
+            >
+                <slot />
+            </Section>
+            <Projects locale={locale} />
+            <Study locale={locale} />
+            <Blog />
+            <Separator
+                orientation="horizontal"
+                className="bg-foreground/15 dark:bg-foreground/30 h-px w-full max-w-md lg:max-w-lg"
+            />
+
+            <Footer locale={locale} />
+        </article>
+    </body>
 </html>

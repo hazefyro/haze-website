@@ -1,0 +1,13 @@
+---
+import Section from "./Section.astro";
+import { BlogPostsIsland } from "./BlogPostsIsland";
+
+export const prerender = false;
+---
+
+<Section>
+    <p class="text-foreground font-bold">Blog</p>
+    <div class="flex flex-col gap-3 sm:gap-2">
+        <BlogPostsIsland client:load />
+    </div>
+</Section>

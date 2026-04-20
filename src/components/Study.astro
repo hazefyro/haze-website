@@ -1,0 +1,40 @@
+---
+import Section from "./Section.astro";
+
+const { locale } = Astro.props;
+
+type Studies = {
+    title: string;
+    degree: string;
+    uni: string;
+};
+
+let studies: Studies;
+
+if (locale === "pl") {
+    studies = {
+        title: "Studia",
+        degree: "Informatyka",
+        uni: "Uniwersytet Zielonogórski",
+    };
+} else {
+    studies = {
+        title: "Studies",
+        degree: "Computer Science",
+        uni: "University of Zielona Góra",
+    };
+}
+---
+
+<Section class="flex w-full max-w-md flex-col gap-5 text-left lg:max-w-lg">
+    <p class="text-foreground font-bold">{studies.title}</p>
+    <div class="flex flex-col">
+        <span
+            class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between"
+        >
+            <p class="text-foreground font-medium">{studies.degree}</p>
+            <p class="text-muted">{studies.uni}</p>
+        </span>
+        <p class="text-muted ml-auto">2024 - present</p>
+    </div>
+</Section>

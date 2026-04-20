@@ -1,38 +1,46 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 @plugin "@tailwindcss/typography";
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-muted: var(--muted);
-  --font-sans:
-    var(--font-roboto), system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Arial, sans-serif;
-  --font-heading:
-    var(--font-roboto), system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, Arial, sans-serif;
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-muted: var(--muted);
+    --font-sans:
+        var(--font-roboto), system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
+    --font-heading:
+        var(--font-roboto), system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 :root {
-  --background: #fdfbf7;
-  --foreground: #111;
-  --muted: #000000b3;
+    --background: #fdfbf7;
+    --foreground: #111;
+    --muted: #000000b3;
 }
 
 .dark {
-  --background: #121212;
-  --foreground: #ffffff;
-  --muted: #ffffffb3;
+    --background: #121212;
+    --foreground: #ffffff;
+    --muted: #ffffffb3;
 }
 
 @layer base {
-  html {
-    font-family: var(--font-sans);
-  }
-  h1 {
-    font-weight: 600;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+    html {
+        font-family: var(--font-sans);
+        @apply font-sans;
+    }
+    h1 {
+        font-weight: 600;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
 }
