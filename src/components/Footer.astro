@@ -20,6 +20,8 @@ const socialButtons = [
     href: "https://substack.com/@hazefyro",
   },
 ] satisfies SocialButton[];
+
+const { locale } = Astro.props;
 ---
 
 <footer
@@ -32,7 +34,17 @@ const socialButtons = [
       </a>
     ))
   }
+  <a id="i18n" href="/pl" aria-label="pl" class="text-foreground text-sm">
+    pl?
+  </a>
   <div class="ml-auto">
     <ThemeIcon />
   </div>
 </footer>
+
+<script define:vars={{ locale }} is:inline>
+  console.log(locale);
+  if (locale === "pl") {
+    document.getElementById("i18n")?.classList.add("hidden");
+  }
+</script>

@@ -2,6 +2,10 @@
 import { Font } from "astro:assets";
 import "@/styles/global.css";
 import Footer from "@/components/Footer.astro";
+import Projects from "@/components/Projects.astro";
+import { Separator } from "@base-ui/react";
+
+const locale = Astro.currentLocale;
 ---
 
 <!doctype html>
@@ -12,7 +16,7 @@ import Footer from "@/components/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>Haze | Fyro</title>
     <Font
       cssVariable="--font-roboto"
       preload={[{ weight: 400 }, { weight: 600 }]}
@@ -23,8 +27,17 @@ import Footer from "@/components/Footer.astro";
     <article
       class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
     >
-      <slot />
-      <Footer />
+      <section
+        class="flex w-full max-w-md flex-col items-start gap-5 text-left lg:max-w-lg"
+      >
+        <slot />
+        <Projects locale={locale} />
+        <Separator
+          orientation="horizontal"
+          className="bg-foreground/15 dark:bg-foreground/30 h-px w-full max-w-md lg:max-w-lg"
+        />
+      </section>
+      <Footer locale={locale} />
     </article>
   </body>
 </html>
