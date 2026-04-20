@@ -10,4 +10,8 @@
     "observability": {
         "enabled": true,
     },
+    "routes": [{ "pattern": "haze.fyro.dev", "custom_domain": true }],
+    "placement": {
+        "mode": "smart",
+    },
 }
