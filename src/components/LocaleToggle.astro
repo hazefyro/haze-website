@@ -1,0 +1,15 @@
+---
+const { locale } = Astro.props;
+---
+
+{
+    locale === "pl" ? (
+        <a id="i18n" href="/" aria-label="en" class="text-foreground text-sm">
+            en?
+        </a>
+    ) : (
+        <a id="i18n" href="/pl" aria-label="pl" class="text-foreground text-sm">
+            pl?
+        </a>
+    )
+}

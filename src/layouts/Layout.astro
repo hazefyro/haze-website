@@ -3,7 +3,7 @@ import { Font } from "astro:assets";
 import "@/styles/global.css";
 import Footer from "@/components/Footer.astro";
 import Projects from "@/components/Projects.astro";
-import { Separator } from "@base-ui/react";
+import Separator from "@/components/Separator.astro";
 import Study from "@/components/Study.astro";
 import Section from "@/components/Section.astro";
 import Blog from "@/components/Blog.astro";
@@ -48,7 +48,9 @@ const locale = Astro.currentLocale ?? "en";
     </head>
 
     <body class="bg-background">
-        <Motion client:load>
+        <div
+            class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
+        >
             <Section
                 class="flex w-full max-w-md flex-col items-start gap-5 text-left lg:max-w-lg"
             >
@@ -57,12 +59,8 @@ const locale = Astro.currentLocale ?? "en";
             <Projects locale={locale} />
             <Study locale={locale} />
             <Blog locale={locale} />
-            <Separator
-                orientation="horizontal"
-                className="bg-foreground/15 dark:bg-foreground/30 h-px w-full max-w-md lg:max-w-lg"
-            />
-
+            <Separator />
             <Footer locale={locale} />
-        </Motion>
+        </div>
     </body>
 </html>

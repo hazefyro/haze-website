@@ -62,7 +62,7 @@ export const BlogPosts = ({ locale }: BlogPostsProps) => {
     if (isPending) {
         return (
             <div className="flex flex-col gap-2">
-                {[0, 1, 2].map((row) => (
+                {[0].map((row) => (
                     <motion.div
                         key={row}
                         initial={{ opacity: 0, y: 6 }}
