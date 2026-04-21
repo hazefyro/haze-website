@@ -7,16 +7,18 @@ import { Separator } from "@base-ui/react";
 import Study from "@/components/Study.astro";
 import Section from "@/components/Section.astro";
 import Blog from "@/components/Blog.astro";
-import { motion } from "motion/react";
+import Motion from "@/components/Motion.astro";
+import { initThemeScript } from "@/utils/initTheme";
 
-const locale = Astro.currentLocale;
+const locale = Astro.currentLocale ?? "en";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
+        <script is:inline set:html={initThemeScript} />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="icon" href="/favicon.ico" />
         <link
@@ -46,13 +48,7 @@ const locale = Astro.currentLocale;
     </head>
 
     <body class="bg-background">
-        <motion.div
-            client:load
-            initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.4, ease: "easeIn" }}
-            className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
-        >
+        <Motion client:load>
             <Section
                 class="flex w-full max-w-md flex-col items-start gap-5 text-left lg:max-w-lg"
             >
@@ -67,6 +63,6 @@ const locale = Astro.currentLocale;
             />
 
             <Footer locale={locale} />
-        </motion.div>
+        </Motion>
     </body>
 </html>

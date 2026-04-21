@@ -1,0 +1,14 @@
+---
+import { motion } from "motion/react";
+---
+
+<motion.div
+    id="motion"
+    client:load
+    initial={{ opacity: 0.1, y: 16, filter: "blur(4px)" }}
+    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+    transition={{ duration: 0.4, ease: "easeIn" }}
+    className="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-24 text-sm lg:gap-8"
+>
+    <slot />
+</motion.div>
