@@ -33,13 +33,14 @@ const { locale } = Astro.props;
                 href={href}
                 aria-label={name}
                 class="text-foreground font-medium"
+                target="_blank"
+                referrerpolicy="no-referrer"
             >
                 {name}
             </a>
         ))
     }
     <a id="i18n" href="/pl" aria-label="pl" class="text-foreground text-sm">
-        XD
     </a>
     <div class="ml-auto">
         <ThemeToggle client:load />
