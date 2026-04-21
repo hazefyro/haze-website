@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { Button } from "@base-ui/react";
 import { Moon, Sun } from "lucide-react";
+import { motion } from "motion/react";
+
+const MotionButton = motion.create(Button);
 
 type Theme = "light" | "dark";
 
@@ -26,22 +29,31 @@ export const ThemeToggle = () => {
     if (!mounted) {
         return (
             <Button aria-label="Toggle theme" className="cursor-pointer">
-                <Sun className="sun" />
+                <motion.div
+                    className="bg-foreground/10 h-6 w-6 rounded-4xl"
+                    animate={{ opacity: [0.35, 0.7, 0.35] }}
+                    transition={{
+                        duration: 1.6,
+                        ease: "easeInOut",
+                        repeat: Infinity,
+                        delay: 0.15,
+                    }}
+                />
             </Button>
         );
     }
 
     return (
-        <Button
+        <MotionButton
             onClick={handleToggleClick}
             aria-label="Toggle theme"
             className="cursor-pointer"
+            whileTap={{
+                scale: 0.9,
+            }}
+            whileHover={{ scale: 1.1 }}
         >
-            {theme === "light" ? (
-                <Sun className="sun" />
-            ) : (
-                <Moon className="moon" />
-            )}
-        </Button>
+            {theme === "light" ? <Sun /> : <Moon />}
+        </MotionButton>
     );
 };
