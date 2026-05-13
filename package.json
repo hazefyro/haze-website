@@ -13,8 +13,8 @@
         "generate-types": "wrangler types"
     },
     "dependencies": {
-        "@astrojs/cloudflare": "^13.1.10",
-        "@astrojs/react": "^5.0.3",
+        "@astrojs/cloudflare": "^13.5.0",
+        "@astrojs/react": "^5.0.4",
         "@astrojs/sitemap": "^3.7.2",
         "@base-ui/react": "^1.4.0",
         "@lucide/astro": "^1.8.0",
@@ -24,7 +24,7 @@
         "@tanstack/react-query-persist-client": "^5.99.2",
         "@types/react": "^19.2.14",
         "@types/react-dom": "^19.2.3",
-        "astro": "^6.0.8",
+        "astro": "^6.3.1",
         "fast-xml-parser": "^5.7.1",
         "lucide-react": "^1.8.0",
         "motion": "^12.38.0",
