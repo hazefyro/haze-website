@@ -36,8 +36,10 @@ if (locale === "pl") {
             class="flex w-full flex-col sm:flex-row sm:items-center sm:justify-between"
         >
             <p class="text-foreground font-medium">{studies.degree}</p>
-            <p class="text-muted">{studies.uni}</p>
+            <p class="text-muted font-mono">{studies.uni}</p>
         </span>
-        <p class="text-muted flex-col sm:ml-auto">2024 - {studies.time}</p>
+        <p class="text-muted flex-col font-mono sm:ml-auto">
+            2024 - {studies.time}
+        </p>
     </div>
 </Section>
