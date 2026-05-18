@@ -23,6 +23,14 @@ export default defineConfig({
             styles: ["normal"],
             subsets: ["latin", "latin-ext"],
         },
+        {
+            provider: fontProviders.fontsource(),
+            name: "JetBrains Mono",
+            cssVariable: "--font-jetbrains",
+            weights: [400],
+            styles: ["normal"],
+            subsets: ["latin", "latin-ext"],
+        },
     ],
     i18n: {
         locales: ["en", "pl"],
